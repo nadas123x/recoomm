@@ -1,0 +1,147 @@
+{% extends 'website/basic.html' %}
+
+{% block title%} Sign UP {% endblock %}
+
+
+
+
+        {% block homeurl %} "\"{% endblock %}
+        {% block abouturl %} "\about/" {% endblock %}
+        {% block contacturl %} "\contact/" {% endblock %}
+
+
+	
+
+{% block css %}
+
+#tab{
+    font-size:18px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.bg-dark{
+    color: black;
+}
+.containerr{
+  margin-bottom: 10% !important;
+  margin-left: 20%;
+  font-family: sans-serif;	
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-size: cover;
+  width:620px;
+  height: 40em;
+    margin:3% auto;
+    border-radius: 25px;
+    background-color: #130c04c9;
+
+    box-shadow: 0 0 17px rgb(29, 28, 28);
+  padding: 3%; }
+.btn1 {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  margin-left:3px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.form-submit{
+    background: #685a48de!important;
+}
+
+/* Darker background on mouse-over */
+.btn1:hover {
+  background-color: RoyalBlue;
+}
+.mainn{
+    background-image:url("https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?cs=srgb&dl=pexels-pixabay-260922.jpg&fm=jpg");
+}
+.signin-formm{
+    margin-left:25%
+}
+
+.form-group{
+    border-radius:2%;
+}
+.input{
+    width:200px
+}
+.sig{
+    color: white;
+    font-style: bold;
+    margin-top: -16%;
+}
+.username{
+    width: 90%;
+        background-color: #d5d3cd;
+        margin-left: 2%;
+        color: var(--color-black);
+        font-family: var(--font-base);
+        font-weight: 900;
+        letter-spacing: 0.04em;
+        line-height: 28px;
+        font-size: 16px;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;}
+}
+
+{% endblock %}
+
+
+{% block body %}
+
+    {% load static%}
+    <!-- Main css -->
+    <link rel="stylesheet" href="{% static 'front/css/style.css' %}">
+
+    <div style="padding:100px 0;" class="mainn" bgcolor="red">
+
+        <!-- Sing in  Form -->
+        <section class="sign-in">
+            <div class="containerr">
+                <div class="signin-content">
+                  
+
+                    <div class="signin-formm">
+                        <h2 style="color:black" class="form-title"></h2>
+                        <form action="\login/" method="POST" class="register-form" id="login-form">
+                                                
+                            {% csrf_token %}
+                            <h2 class=""><font color="white">Sign in</font></h2>
+                            <br>
+                          
+                        
+                            <div class="form-group">
+                                <label><i class="material-icons">  &nbsp; face</i></label>
+                                <input id="tabb" class="username"type="number" name="number" required placeholder="Your Mobile Number"/>
+                            </div>
+                            <div class="form-group">
+                                <label><i class="material-icons">  &nbsp; lock</i></label>
+                                <input id="tabb"class="username" type="password" name="passw"  required placeholder="Password"/>
+                            </div>
+                            
+                            <div class="form-group form-button">
+                                <input type="submit" name="signin" id="tab" class="form-submit" value="Log in"/>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                <input type="submit" name="signin" id="tab" class="form-submit" value="Sign up">
+                                                              <a  href="\signup/" > </a>
+                                                                </input>
+
+                            </div>
+
+                        </form>
+                        <div class="social-login">
+
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+	
+    	
+{% endblock %}

@@ -1,0 +1,92 @@
+
+
+{% extends 'website/basic.html' %}
+
+{% block title%} Welcome {% endblock %}
+ 
+ {% block css %} 
+ 
+  /* Make the image fully responsive */
+  .carousel-inner img {
+      width: 100%;
+      height: 100%;
+	  margin-bottom: -20%;
+  }
+  
+  .carousel-item {
+  height: 65vh;
+  weight: 155vh;
+  border-radius: 10%;
+
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+{% load static %}
+body{
+    background-image:url("https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?cs=srgb&dl=pexels-pixabay-260922.jpg&fm=jpg");
+background-repeat: no-repeat;
+}
+
+
+{% endblock %}
+
+
+        {% block homeurl %} ""{% endblock %}
+        {% block abouturl %} "about/" {% endblock %}
+        {% block contacturl %} "contact/"{% endblock %}
+        {% block mealurl %} "decider/" {% endblock %}
+        {% block orderurl %} "\order/" {% endblock %}
+        
+    {% block homeactive %} active {% endblock %}
+
+{% block body %}
+
+
+
+	<div id="demo" class="container carousel slide my-4" data-ride="carousel" data-interval="2500">>
+	  <!-- Indicators -->
+	  <ul class="carousel-indicators">
+		<li data-target="#demo" data-slide-to="0" class="active"></li>
+		<li data-target="#demo" data-slide-to="1"></li>
+		<li data-target="#demo" data-slide-to="2"></li>
+		<li data-target="#demo" data-slide-to="3"></li>
+	  </ul>
+	  <br>
+	  <br>
+
+	  <br>
+
+	  
+	  <!-- The slideshow -->
+	  <div class="carousel-inner">
+		<div class="carousel-item active"  style="background-image: url('https://images.pexels.com/photos/7172068/pexels-photo-7172068.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')">
+		</div>
+		
+		<div class="carousel-item" style="background-image: url('https://images.pexels.com/photos/5645034/pexels-photo-5645034.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')">
+		</div>
+		
+		<div class="carousel-item" style="background-image: url('https://images.pexels.com/photos/5645017/pexels-photo-5645017.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')">
+		</div>
+		
+		<div class="carousel-item" style="background-image: url('https://images.pexels.com/photos/5645034/pexels-photo-5645034.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')">
+		</div>
+		
+	  </div>
+	  
+	  <!-- Left and right controls -->
+	  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+		<span class="carousel-control-prev-icon"></span>
+	  </a>
+	  <a class="carousel-control-next" href="#demo" data-slide="next">
+		<span class="carousel-control-next-icon"></span>
+	  </a>
+	</div>
+
+
+    
+ {% endblock %}
