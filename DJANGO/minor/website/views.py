@@ -2,6 +2,8 @@ from django.shortcuts import render,redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from .models import Contact
+from .models import Meal
+
 from .models import Profile
 import os
 import datetime
@@ -57,6 +59,7 @@ def logout_user(request):
         return redirect('Home')
 
 def decider(request):
+    
     if request.user.is_authenticated:
         v=Profile.objects.get(number=request.user.username).second_time
         if(v==False):
@@ -68,6 +71,7 @@ def decider(request):
         return redirect('Home')
 
 def contact(request):
+    
     if request.method=='POST':
         name = request.POST.get('name', 'default')
         email = request.POST.get('email', 'default')
@@ -96,6 +100,46 @@ def contact(request):
     else:
         return render(request,'website/contact.html')
 
+
+
+
+def meal(request):
+    meal = Meal.objects.get(id=515)
+    context ={
+       'meal': meal
+       
+    }
+    
+
+    if request.method=='POST':
+        Meal_Id = request.POST.get('Meal_Id', 'default')
+        Name = request.POST.get('Name', 'default')
+        Catagory = request.POST.get('Catagory', 'default')  
+        description = request.POST.get('description', 'default')
+        Veg_Non = request.POST.get('Veg_Non', 'default')
+        Nutrient = request.POST.get('Nutrient', 'default')
+        Disease = request.POST.get('Disease', 'default')
+        Diet = request.POST.get('Diet', 'default')
+        Price = request.POST.get('Price', 'default')
+
+
+        
+        if len(Name)<3 or Name.isnumeric():
+            messages.error(request,"Name should be string with more than 2 character")
+        else:
+            meal=Meal(Meal_Id=Meal_Id,Name=Name,Catagory=Catagory,description=description,Veg_Non=Veg_Non,Nutrient=Nutrient,Disease=Disease,Diet=Diet,Price=Price)
+            meal.save()
+            messages.success(request,"your meal has been added successfuly")
+            
+    if request.user.is_authenticated:
+        try:
+            img= Profile.objects.get(number=request.user.username).image.url
+        except:
+            img=""
+        return render(request,'website/meal.html', context)
+    else:
+        return render(request,'website/mealaffich.html', context)
+ 
 
 def buy(request):
     a=request.POST.get('product_buy')

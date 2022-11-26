@@ -1,6 +1,5 @@
 
-{% extends 'website/basic.html' %}
-
+{% extends 'website/mealaffich.html' %}
 {% block title%} Recommendation {% endblock %}
   
 
@@ -33,15 +32,26 @@
         {% block contacturl %} "\contact/" {% endblock %}
         {% block mealurl %} "" {% endblock %}
         {% block orderurl %} "\order/" {% endblock %}
+        {% block mealaffichurl %} "\mealaffich/" {% endblock %}
+
+
         
         {% block mealactive %} active {% endblock %}
 
    
 {% block body %}
 
+{% block context %} :</p>
+        <p>Mes groupes préférés sont :</p>
+        <li>{{ meal.Price }}</li>
+        <li>{{ meal.Name }}</li>
+        
 
+
+        {% endblock %}
 <div style="background-color:rgba(236, 236, 229, 0.986); border-radius: 52px;" class="container mb-5 pb-5 pt-5 mt-5">
 <h1 class="text-center" style="color:rgb(177, 167, 134)">Recommendations For You</h1>
+
 <form id="myForm" action="\buy/" method="post">
 {% csrf_token %}
     <input id="inpt" style="display:none" type="text" name="product_buy">
@@ -49,6 +59,8 @@
 <div id="purchasebtn" style="visibility:hidden" class="text-right"><button style="width:25%;font-size:20px" class="btn btn-primary p-2" onclick="submit()">Save All Purchases</button></div>
 
 {% load static %}
+
+
 <div class="row mx-2 my-4">
 
 {% for (a,id,n,c,sc,vn,r,nt,p,b) in data %}
@@ -86,6 +98,11 @@
             </td>
         </tr>
         
+        <tr>
+        
+
+       
+        </tr>
     </table>
 	</div>
 

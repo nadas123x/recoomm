@@ -31,7 +31,6 @@ def Recommend(request):
                 
                 feature_df = self.get_features()
                
-                #initializing model with k=20 neighbors
                 model = NearestNeighbors(n_neighbors=40,algorithm='ball_tree')
                 
                 # fitting model with dataset features

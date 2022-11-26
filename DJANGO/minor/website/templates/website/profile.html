@@ -185,13 +185,13 @@ padding:10px;
     </div>
     
     <div class="input-group">
-      <span class="input-group-text" id="basic-addon3">Weight(in kg)<font style="color:red">*</font></span>
-      <input type="number" required name="weight" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+      <span hidden="hidden" class="input-group-text" id="basic-addon3">Weight(in kg)<font style="color:red">*</font></span>
+      <input type="hidden" required name="weight" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="23">
     </div>
     
     <div class="input-group">
-      <span class="input-group-text" id="basic-addon3">Height(in ft)<font style="color:red">*</font></span>
-      <input type="number" required name="height" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+      <span hidden="hidden" class="input-group-text" id="basic-addon3">Height(in ft)<font style="color:red">*</font></span>
+      <input  type="hidden" required name="height" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="23">
     </div>
 
     <input id="btn1" class="form-control" type="button" onclick="show2()" value="Next">
@@ -206,17 +206,11 @@ padding:10px;
 <div id="form2" style="display:none">
     
     <div class="input-group">
-      <span class="input-group-text" id="basic-addon3">Favorite Food<font style="color:red">*</font></span>
-      <input type="text" required name="favfood" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+      <span hidden="hidden" class="input-group-text" id="basic-addon3">Favorite Food<font style="color:red">*</font></span>
+      <input type="hidden"  name="favfood" class="form-control" id="basic-url" aria-describedby="basic-addon3">
     </div>
     
-    <div class="input-group">
-    	<span class="input-group-text" id="basic-addon3">Food You Prefer</span>
-    	<select multiple class="form-control selectpicker" title="Choose food you prefer...." name="food">
-    		<option value="veg">Veg</option>
-    		<option value="non-veg">Non-Veg</option>
-    	</select>
-    </div>
+    
     
     
     <div class="input-group">
@@ -244,23 +238,7 @@ padding:10px;
     
     
     
-    <div class="input-group">
-    	<span class="input-group-text" id="basic-addon3">Cuisines You Prefer </span>
-    	<select multiple class="form-control selectpicker" data-live-search="true" title="Choose from the following..." name="cuisines">
-            <option value="chinese">Chinese</option>
-            <option value="italian">Italian</option>
-            <option value="mexican">Mexican</option>
-            <option value="indian">Indian</option>
-            <option value="mediterranean">Mediterranean</option>
-            <option value="turkish">Turkish</option>
-            <option value="vegetarian">Vegetarian</option>
-            <option value="french">French</option> 
-            <option value="street_Food">Street Food</option>
-            <option value="indonesian">Indonesian</option>
-            <option value="middle_east">Middle East</option>
-                
-      </select>
-    </div>
+  
     
     
     <div class="input-group">

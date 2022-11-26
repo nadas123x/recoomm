@@ -9,6 +9,10 @@ urlpatterns = [
     path('',views.index,name="Home"),
     path('about/',views.about,name="about"),
     path('contact/',views.contact,name="contact"),
+    path('meal/',views.meal,name="meal"),
+    path('mealaffich/',views.meal,name="mealaffich"),
+
+
     path('order/',views.order,name="order"),
     path('signup/',signup.signup_user,name="signup"),
     path('login/',views.login_user,name="login"),

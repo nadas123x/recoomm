@@ -28,7 +28,7 @@
 
 {% load static %}
 body{
-    background-image:url("https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?cs=srgb&dl=pexels-pixabay-260922.jpg&fm=jpg");
+    background-image:url("front/images/nveg.png");
 background-repeat: no-repeat;
 }
 
@@ -45,9 +45,9 @@ background-repeat: no-repeat;
     {% block homeactive %} active {% endblock %}
 
 {% block body %}
+<div class="body">
 
-
-
+<img src="{% static 'front/images/hh.PNG'%}"> </img>
 	<div id="demo" class="container carousel slide my-4" data-ride="carousel" data-interval="2500">>
 	  <!-- Indicators -->
 	  <ul class="carousel-indicators">
@@ -86,7 +86,7 @@ background-repeat: no-repeat;
 		<span class="carousel-control-next-icon"></span>
 	  </a>
 	</div>
-
+</div>
 
     
  {% endblock %}

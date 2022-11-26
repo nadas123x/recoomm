@@ -1,6 +1,20 @@
 from django.db import models
 
 # Create your models here.
+class Meal(models.Model):
+    Meal_Id = models.TextField(max_length=500)
+    Name = models.TextField(max_length=500)
+    Catagory=models.TextField(max_length=500)
+    description = models.TextField(max_length=500)
+    Veg_Non=models.TextField(max_length=500)
+    Nutrient = models.TextField(max_length=500)
+    Disease = models.TextField(max_length=500)
+    Diet = models.TextField(max_length=500)
+    Price = models.TextField(max_length=500)
+
+    
+    def __str__(self):
+        return self.name
 
 class Contact(models.Model):
     name = models.CharField(max_length=50)
@@ -33,3 +47,5 @@ class Profile(models.Model):
     
     def __str__(self):
         return self.name
+
+
