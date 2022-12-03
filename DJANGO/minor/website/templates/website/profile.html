@@ -5,7 +5,7 @@
 
 
         {% block homeurl %} "\"{% endblock %}
-        {% block abouturl %} "\about/" {% endblock %}
+        {% block abouturl %} "\meall/" {% endblock %}
         {% block contacturl %} "\contact/" {% endblock %}
         {% block orderurl %} "\order/" {% endblock %}
 
@@ -72,11 +72,13 @@ padding:10px;
 
 <div style="" class='cont1 container mb-5'>
     <div class="fluid-container"> <h1 style="color:rgb(231, 225, 225)" align="center"> Fill Your Basic Details </h1></div>
-    
+    {% if user.is_authenticated and user.username == "0613792113" %}
     <div style="margin-top:50px" class="fluid-container">
       <input style="background-color:#8b7567;color:white" type="button" id="basic" onclick="show1()"  value="basic details" aria-describedby="basic-addon3">
       <input type="button" value="Food And Medical" id="advance" onclick="show2()" aria-describedby="basic-addon3">
     </div>
+    {% endif %}
+
 
 
 <script>
@@ -194,7 +196,7 @@ padding:10px;
       <input  type="hidden" required name="height" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="23">
     </div>
 
-    <input id="btn1" class="form-control" type="button" onclick="show2()" value="Next">
+    <input id="btn1" class="form-control" type="button" onclick="show2()" value="Done">
 </div>
 
 

@@ -96,36 +96,141 @@ color:rgb(19, 18, 18);
     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
 
     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
 
     <ul class="navbar-nav mr-auto mt-4 mt-lg-0">
+      &nbsp;&nbsp; 
+      &nbsp;&nbsp; 
+ 
+      
+ 
+  
+
       <li class="nav-item {% block homeactive %} {% endblock %}">
         <a id="tab" class="nav-link" href='http://localhost:3000/'>Home <span class="sr-only">(current)</span></a>
       </li>
+
+    
+   
+
+      {% if not user.is_authenticated %}
+   
+      <li class="nav-item ">
+        <a id="tab" hidden class="nav-link" href='http://localhost:3000/'>Contact Us <span class="sr-only">(current)</span></a>
+      </li>
+
+      {% endif %}
+      &nbsp;&nbsp; 
+      &nbsp;&nbsp; 
       &nbsp;&nbsp; 
       &nbsp;&nbsp; 
 
-      &nbsp;&nbsp;     <li class="nav-item {% block aboutactive %} {% endblock %}">
-        <a id="tab"  class="nav-link" href={% block abouturl %} {% endblock %}>About Us</a>
+      {% if not user.is_authenticated %}
+   
+      <li class="nav-item ">
+        <a id="tab"  class="nav-link" href='http://localhost:3000/'>Contact Us <span class="sr-only">(current)</span></a>
       </li>
-      &nbsp;&nbsp;
-      &nbsp;&nbsp;
+
+      {% endif %}
       &nbsp;&nbsp; 
+      &nbsp;&nbsp; 
+      &nbsp;&nbsp; 
+      &nbsp;&nbsp; 
+
+      {% if not user.is_authenticated %}
+      
+      <li class="nav-item ">
+        <a id="tab" class="nav-link" href='http://localhost:3000/'>Make a Reservation <span class="sr-only">(current)</span></a>
+      </li>
+
+      {% endif %}
+
+      &nbsp;&nbsp; 
+      &nbsp;&nbsp; 
+ 
+      &nbsp;&nbsp;   
+      {% if user.is_authenticated and user.username == "0613792110" %}
+
+        <li class="nav-item {% block aboutactive %} {% endblock %}">
+        <a id="tab"  class="nav-link" href="/nutrient">Meals</a>
+      </li>
+      {% endif %}
+
+      &nbsp;&nbsp;
+      &nbsp;&nbsp;
 
 	  <li class="nav-item {% block contactactive %} {% endblock %}">
       </li>
-  {% if user.is_authenticated %}
+  {% if user.is_authenticated and user.username == "0613792113" or user.username == "0673915382"%}
       <li class="nav-item {% block orderactive %} {% endblock %}">
-        <a id="tab" class="nav-link" href={% block orderurl %} {% endblock %}>My Orders</a>
+        <a id="tab" class="nav-link" href={% block orderurl %} {% endblock %}>Orders</a>
       </li>
       &nbsp;&nbsp;
       &nbsp;&nbsp;
       &nbsp;&nbsp; 
 
+      {% if user.is_authenticated  %}
+      <li class="nav-item ">
+      </li>
+      {% endif %}
+
+
   {% endif %}
+
+  {% if user.is_authenticated and user.username == "0613792113" %}
+  <li class="nav-item ">
+    <a id="tab" class="nav-link" href="/guidelinesuser">Guidelines</a>
+  </li>
+  &nbsp;&nbsp;
+  &nbsp;&nbsp;
+  &nbsp;&nbsp; 
+
+  {% if user.is_authenticated  %}
+  <li class="nav-item ">
+  </li>
+  {% endif %}
+
+
+{% endif %}
+  &nbsp;&nbsp;
+  &nbsp;&nbsp;
+  &nbsp;&nbsp; 
+  {% if user.is_authenticated and user.username == "0613792113" or user.username == "0673915382" %}
+
   <li class="nav-item {% block mealactive %} {% endblock %}">
-    <a id="tab" class="nav-link" href={% block mealurl %} {% endblock %}>Meal for you </a>
+    <a id="tab" class="nav-link" href="/recommend/"> Recommendations </a>
+
+  </li>
+  {% endif %}
+
+
+
+
+
+  {% if user.is_authenticated and user.username == "0613792110" %}
+
+  <li class="nav-item ">
+    <a id="tab" class="nav-link" href="/show"> Guidelines </a>
+
+  </li>
+  {% endif %}
+
+  &nbsp;&nbsp;
+  &nbsp;&nbsp;
+  &nbsp;&nbsp; 
+
+
+
+
+
+
+
+
+  {% if user.is_authenticated and user.username == "0613792110" %}
+
+  <li class="nav-item {% block ordeactive %} {% endblock %}">
+    <a id="tab" class="nav-link" href="/meal" >New meal </a>
+    {% endif %}
+
 
   </li>
   &nbsp;&nbsp;

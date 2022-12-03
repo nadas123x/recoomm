@@ -3,23 +3,87 @@
 
 {% block title%} Contact Us {% endblock %}
 {% block css %}
+body{
+	background-image:url("https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?cs=srgb&dl=pexels-pixabay-260922.jpg&fm=jpg");
+  
+  }
+.input-group{
+	margin-top:20px;
+	width:auto;
+	}
+	
+	.cont1{
+	  background-color: #fbfbfb;
+		border:solid;
+		margin-left: 15%;
+	  border-radius:20px;
+	  background-repeat: no-repeat;
+	  overflow: hidden;
+	  background-size: cover;
+		padding:50px 25px 50px 25px;
+		width:800px;
+		margin-top:50px;
+	}
+	
+	.no-edit{
+	pointer-events: none; 
+	}
+	
+	input[type=file]{
+	padding:10px;
+	}
+	
+	#basic,#advance{
+		border-radius: 20px;
+		border: 2px solid #black;
+		padding:15px;
+		width:370px;
+	}
+	#btn1,#sub_btn{
+		border-radius: 20px;
+		margin-top:30px ; 
+		padding:0px 10px 10px 10px; 
+		background-color:#8b7567; 
+		color:white;
+		border: 2px solid #black;
+		font-size:25px;
+	}
 
 #tab{
     font-size:16px;
     font-family: Arial, Helvetica, sans-serif;
 } 
+element.style {
+    color: rgb(44 35 35);
+}
+
 
 #div_border{
-    border:solid 1px red;
+    border:solid 1px black;
+	border-radius:22px;
+}
+.container-contact-form-btn
+{
+  color:beige;
+  height: 50px;
+  width: 100px;
+  padding-top: 2%;
+  padding-left: 2%;
+  background: #00ad5f;
+  border-radius: 22px;
+  margin-left: 88%;
+  background-color: rgba(128, 119, 77, 0.863);
 }
 
 {% endblock %}
 
         {% block homeurl %} "\"{% endblock %}
-        {% block abouturl %} "\about/" {% endblock %}
+        {% block abouturl %} "\meall/" {% endblock %}
         {% block contacturl %} ""{% endblock %}
         {% block mealurl %} "\decider/" {% endblock %}
         {% block orderurl %} "\order/" {% endblock %}
+		{% block addrurl %} "\add/" {% endblock %}
+
         
     {% block contactactive %} active {% endblock %}
     
@@ -32,88 +96,118 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'front/css/util.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'front/css/main.css' %}">
 
-	<div class="container-contact100" style="background-image:url(https://images.pexels.com/photos/1591447/pexels-photo-1591447.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);background-repeat:no-repeat;background-size:cover;      ">
-		<div class="wrap-contact100">
+	&ensp;  &ensp;  &ensp; <div class='container'
+		>
+		&ensp; <br>  &ensp;  &ensp; &ensp;  <div class="cont1">
 			
-			<div class="contact100-form-title" style="background-image: url({% static 'front/images/bg-02.jpg' %});">
-				<span>Contact Us</span>
-			</div>
+			<div class="fluid-container"> <h1 style="color:rgb(68, 55, 43)" align="center"> New Meal Recommendation : </h1></div>
+    
+		
 
-			<form action="\meal/" method="post" class="contact100-form validate-form">
+			<form action="\meal/" method="post" class="form1 validate-form">
 			{% csrf_token %}
-				<div id="div_border" class="wrap-input100 validate-input">
-					<input id="tab" class="input100" type="text" name="Meal_Id"  placeholder="Meal_Id">
-					<span class="focus-input100"></span>
-					<label class="label-input100" for="name">
-						<i class="material-icons">face</i>
-					</label>
-				</div>
-
+			
+ &ensp;  &ensp; 
 				<div id="div_border" class="wrap-input100 validate-input">
 					<input id="tab" class="input100" type="text" name="Name" required placeholder="Name">
 					<span class="focus-input100"></span>
 					<label class="label-input100" for="email">
-						<i class="material-icons">name</i>
 					</label>
 				</div>
 
 				<div id="div_border" class="wrap-input100 validate-input">
-					<input id="tab" class="input100" type="text" name="Catagory" required placeholder="Eg. +1 800 000000">
+					<input id="tab" class="input100" type="text" name="Catagory" required placeholder="Category">
 					<span class="focus-input100"></span>
 					<label class="label-input100" for="phone">
-						<i class="material-icons">categorie</i>
+						<i class="material-icons">Category</i>
 					</label>
 				</div>
 
 				<div id="div_border" class="wrap-input100 validate-input">
-					<textarea id="tab" class="input100" name="description"  placeholder="Your comments...(At least 25 character)"></textarea>
+					<textarea id="tab" class="input100" name="description"  placeholder="Description"></textarea>
 					<span class="focus-input100"></span>
 					<label class="label-input100 rs1" for="message">
-						<i class="material-icons">textsms</i>
 					</label>
 				</div>
 
                 <div id="div_border" class="wrap-input100 validate-input">
-					<input id="tab" class="input100" type="text" name="Veg_Non" required placeholder="Eg. +1 800 000000">
+					<input id="tab" class="input100" type="text" name="Veg_Non" required placeholder="Veg / Non Veg">
 					<span class="focus-input100"></span>
 					<label class="label-input100" for="phone">
-						<i class="material-icons">categorie</i>
 					</label>
 				</div>
+                <div class="input-group">
+					<span class="input-group-text" id="basic-addon3">Nutrients You Prefer</span>
+					<select multiple class="form-control selectpicker" data-live-search="true" title="Choose from the following..." name="Nutrient">
+						<option value="protien">Protien</option>
+						<option value="calcium">Calcium</option>
+						<option value="carbohydrates">Carbohydrates</option>
+						<option value="vitamin_a">Vitamin A</option>
+						<option value="vitamin_c">Vitamin C</option>
+						<option value="vitamin_d">vitamin D</option>
+						<option value="vitamin_e">Vitamin E</option>
+						<option value="magnesium">Magnesium</option>
+						<option value="fiber">Fiber</option>
+						<option value="sodium">Sodium</option>
+						<option value="potassium">Potassium</option>
+						<option value="iron">Iron</option>
+						<option value="manganese">Manganese</option>
+						<option value="phosphorus">Phosphorus</option>
+						<option value="iodine">Iodine</option> 
+						<option value="chloride">Chloride</option>    
+						<option value="selenium">Selenium</option>
+				  </select>
+				</div>
+
+				<div class="input-group">
+					<span class="input-group-text" id="basic-addon3">Do You Suffer From Any Disease</span>
+					<select multiple class="form-control selectpicker" data-live-search="true" title="Choose from the following..."  name="Disease">
+						<option value="heart_disease">Heart Disease</option>
+						<option value="diabeties">Diabetes</option>
+						<option value="cancer">Cancer</option>
+						<option value="rickets">Rickets(vitamin D)</option>
+						<option value="kidney_disease">Kidney Problems</option>
+						<option value="pregnancy">Pregnancy</option>
+						<option value="scurvy">Scurvy(vitamin C)</option>
+						<option value="anemia">Anemia(iron)</option>
+						<option value="goitre">Goitre(Iodine)</option>
+						<option value="eye_disease">Eye Problem(vitamin A)</option>
+						<option value="obesity">Obesity</option> 
+						<option value="hypertension">Hypertension</option>    
+				  </select>
+				</div>
+
+				<div class="input-group">
+					<span class="input-group-text" id="basic-addon3">Diet You Prefer</span>
+					<select multiple class="form-control selectpicker" data-live-search="true" title="Choose from the following..." name="Diet">
+						<option value="vegan_diet">Vegan Diet</option>
+						<option value="high_protien_diet">High Protein Diet</option>
+						<option value="type_a_diet">Type A Diet</option>
+						<option value="type_o_diet">Type O Diet</option>
+						<option value="paleo_diet">Paleo Diet</option>
+						<option value="omni_diet">Omni Diet</option>
+						<option value="low_sodium_diet">Low Sodium Diet</option>
+						<option value="low_fat_diet">Low Fat Diet</option>
+						<option value="gluten_free_diet">Gluten Free</option>
+						<option value="high_fiber_diet">High Fiber</option>
+						<option value="hormone_diet">Hormone Diet</option>
+						<option value="Mediterranean_diet">Mediterranean Diet</option>
+						<option value="low_carb_diet">A Low Carb Diet</option>
+						<option value="alkaline_diet">Alkaline Diet</option>
+						<option value="ketogenic_diet">Ketogenic Diet</option>
+						<option value="dash_diet">Dash Diet</option> 
+				  </select>
+				</div>
+<br> <br>
                 <div id="div_border" class="wrap-input100 validate-input">
-					<input id="tab" class="input100" type="text" name="Nutrient" required placeholder="Eg. +1 800 000000">
+					<input hidden id="tab" class="input100" type="text" name="Price" required placeholder="Price" value="200">
 					<span class="focus-input100"></span>
 					<label class="label-input100" for="phone">
-						<i class="material-icons">categorie</i>
 					</label>
 				</div>
 
-                <div id="div_border" class="wrap-input100 validate-input">
-					<input id="tab" class="input100" type="text" name="Disease" required placeholder="Eg. +1 800 000000">
-					<span class="focus-input100"></span>
-					<label class="label-input100" for="phone">
-						<i class="material-icons">categorie</i>
-					</label>
-				</div>
-
-                <div id="div_border" class="wrap-input100 validate-input">
-					<input id="tab" class="input100" type="text" name="Diet" required placeholder="Eg. +1 800 000000">
-					<span class="focus-input100"></span>
-					<label class="label-input100" for="phone">
-						<i class="material-icons">categorie</i>
-					</label>
-				</div>
-
-                <div id="div_border" class="wrap-input100 validate-input">
-					<input id="tab" class="input100" type="text" name="Price" required placeholder="Eg. +1 800 000000">
-					<span class="focus-input100"></span>
-					<label class="label-input100" for="phone">
-						<i class="material-icons">categorie</i>
-					</label>
-				</div>
-
-				<div class="container-contact100-form-btn">
-					<button class="contact100-form-btn">Send Now</button>
+				<div class="container-contact-form-btn">
+					<button >Send Now</button>
 				</div>
 			</form>
 		</div>

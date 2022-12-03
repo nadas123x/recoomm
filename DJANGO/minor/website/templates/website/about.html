@@ -222,7 +222,7 @@
  {% endblock %}
 
         {% block homeurl %} "\"{% endblock %}
-        {% block abouturl %} "\meal/" {% endblock %}
+        {% block abouturl %} "\meall/" {% endblock %}
         {% block contacturl %} "\contact/" {% endblock %}
         {% block mealurl %} "" {% endblock %}
         {% block orderurl %} "\order/" {% endblock %}
@@ -251,35 +251,28 @@
 
 
 
-    {% for meal in meal %}
+    {% for meall in meall %}
 
-    {% if meal.Veg_Non == 'veg' and meal.Price >= '500' and meal.id >= 500 %}
+    {% if meall.Nutrient == 'fiber'  %}
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <div id="container">	
 	
         <!-- Start	Product details -->
-  <div class="product-details">
+        &nbsp;&nbsp;&nbsp;   <div class="product-details">
                 
                 <!-- 	Product Name -->
-            <h3 id="name{{ id }}" class="my-3" style="color:rgb(121, 118, 88); font-size: 22px;">{{meal.Name}}</h3>
-            <h5 style="color:rgb(10, 10, 10)">Category :- {{meal.Catagory}}</h5>
-            <td><p><pre style="color:rgb(17, 17, 17);font-size:20px">{{meal.Catagory}}   {{meal.Nutrient}}</pre></p></td> 
+            <h2 id="name{{ id }}" class="my-3" style="color:rgb(121, 118, 88); font-size: 22px;">{{meall.Name}}</h2>
+            <h5 style="color:rgb(10, 10, 10)">Category :- {{meall.Catagory}}</h5>
+            <td><p><pre style="color:rgb(17, 17, 17);font-size:20px">{{meall.Catagory}}               {{meall.Nutrient}}</pre></p></td> 
 
             <td>
-        		{% if meal.Veg_Non == 'veg' %}
-            		<img style="width:30px;height:30px" src="{% static 'front/images/723633.png'%}"><font style="font-weight:bold;font-size:17px;color:rgba(75, 102, 72, 0.897)">   Veg</font>
+        		{% if meall.Veg_Non == 'veg' %}
+            		<img style="width:50px;height:50px" src="{% static 'front/images/723633.png'%}"><font style="font-weight:bold;font-size:17px;color:rgba(75, 102, 72, 0.897)">   Veg</font>
             	{% else %}
                 	<img style="width:50px;height:50px" src="{% static 'front/images/nveg.png'%}"><font style="font-weight:bold;font-size:17px;color:rgb(36, 36, 37)">Non-Veg</font>
                 {% endif %}
            </td>
-<br>
-<br>
-           <button style="display:none;"  id="cancel-{{id}}" class="cancel btn btn-danger mb-3" value="{{ id }}">Cancel</button>
-           <button id="buy-{{id}}" class="buy btn btn-success mb-3" value="{{ id }}">  
-               <span class="price">{{meal.Price}} Dh</span>
-               <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="false"></i></span>
-   
-           </button>
+           <br>
         <!-- 		<span class="hint new">New</span> -->
         <!-- 		<span class="hint free-shipping">Free Shipping</span> -->
         <!-- 		the Product rating -->
@@ -287,6 +280,7 @@
                 <i class="fa fa-star" aria-hidden="true"></i>
                 <i class="fa fa-star" aria-hidden="true"></i>
                 <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star-half-o" aria-hidden="true"></i>
                 <i class="fa fa-star-o" aria-hidden="true"></i>
 
             </span>
@@ -309,16 +303,16 @@
         <!-- 	Start product image & Information -->
             
         <div class="product-image">
-            {% if meal.Name == 'tricolour salad' %}
+            {% if meall.Name == 'tricolour salad' %}
             <img src="https://www.nicepng.com/png/detail/124-1244916_thai-grain-bowl-gluten-free-diet.png" alt="Omar Dsoky">
-            {% elif meal.Name == 'summer squash salad' %}
+            {% elif meall.Name == 'summer squash salad' %}
             <img src="https://www.nicepng.com/png/detail/315-3158555_greens-bowls-kale-caesar-chicken-gluten-free-diet.png" alt="Omar Dsoky">
-            {% elif meal.Name == 'chicken minced salad' %}
+            {% elif meall.Name == 'chicken minced salad' %}
           
             <img src="https://www.nicepng.com/png/detail/303-3036596_grilled-chicken-caesar-grilled-chicken-caesar-salad-png.png " alt="Omar Dsoky">
-            {% elif meal.Name == 'coconut lime quinoa salad' %}
+            {% elif meall.Name == 'coconut lime quinoa salad' %}
             <img src="https://www.nicepng.com/png/detail/28-282751_mcdonalds-grilled-chicken-salad-grilled-chicken-and-bacon.png" alt="Omar Dsoky">
-            {% elif meal.Name == 'hawaiin papaya salad' %}
+            {% elif meall.Name == 'hawaiin papaya salad' %}
             <img src="https://cookingwithlane.com/wp-content/uploads/2019/12/thai-vs-lao-papaya-salad-001-720x405.jpg
             " alt="Omar Dsoky">
             {% else %}
@@ -330,7 +324,7 @@
             <br>
             <h2 style="font-size:22px;">The Description</h2>
             <ul>
-                <p style="font-size:15px;">{{meal.description}}</p>
+                <p style="font-size:15px;">{{meall.description}}</p>
             </ul>
         </div>
         </div>

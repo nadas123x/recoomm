@@ -3,12 +3,55 @@ from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from .models import Contact
 from .models import Meal
-
+from .models import Meall
+from .forms import GuidelineForm
+from .models import Guideline
 from .models import Profile
 import os
 import datetime
 import pandas as pd
 from django.http import HttpResponse
+
+def guidelinesuser(request):
+    guidelines = Guideline.objects.all() # it's select query,select all data store in guidelines varible
+    return render(request,"website/test.html", {'guidelines': guidelines})    
+def emp(request):
+	if request.method == "POST":
+		form = GuidelineForm (request.POST) # here "form" is one varible
+		if form.is_valid():
+			try:
+				form.save()
+				return redirect("/show")
+			except:
+				pass
+	else:
+		form = GuidelineForm()
+	return render(request,"website/index.html",{'form':form})
+
+def show(request):
+	guidelines = Guideline.objects.all() # it's select query,select all data store in guidelines varible
+	return render(request,"website/show.html",{'guidelines': guidelines})
+
+
+def edit(request,id):
+	guideline = Guideline.objects.get(id=id)
+	return render(request,"website/edit.html",{'guideline':guideline})
+
+def update(request,id):
+	guideline = Guideline.objects.get(id=id)
+	form = GuidelineForm(request.POST, instance=guideline)
+	if form.is_valid():
+		form.save()
+		return redirect('/show')
+	return render(request,"website/edit.html",{'guideline':guideline})
+
+def delete(request,id):
+	guideline = Guideline.objects.get(id=id)
+	guideline.delete()
+	return redirect("/show")
+
+def home(request):
+	return render(request,"home.html")
 
 def index(request):
     if request.user.is_authenticated:
@@ -20,15 +63,17 @@ def index(request):
     else:
         return render(request,'website/home.html')
 
+    
+
 def about(request):
     if request.user.is_authenticated:
         try:
             img= Profile.objects.get(number=request.user.username).image.url
         except:
             img=""
-        return render(request,'website/about.html.twig',{'image':img})
+        return render(request,'website/about.html',{'image':img})
     else:
-        return render(request,'website/about.html.twig')
+        return render(request,'website/about.html')
 
 
 def login_user(request):
@@ -104,7 +149,7 @@ def contact(request):
 
 
 def meal(request):
-    meal = Meal.objects.get(id=515)
+    meal = Meal.objects.all()
     context ={
        'meal': meal
        
@@ -138,7 +183,85 @@ def meal(request):
             img=""
         return render(request,'website/meal.html', context)
     else:
+        return render(request,'website/meal.html', context)
+ 
+
+def mealaffich(request):
+    meal = Meal.objects.all()
+    context ={
+       'meal': meal
+       
+    }
+    
+
+    if request.method=='POST':
+        Meal_Id = request.POST.get('Meal_Id', 'default')
+        Name = request.POST.get('Name', 'default')
+        Catagory = request.POST.get('Catagory', 'default')  
+        description = request.POST.get('description', 'default')
+        Veg_Non = request.POST.get('Veg_Non', 'default')
+        Nutrient = request.POST.get('Nutrient', 'default')
+        Disease = request.POST.get('Disease', 'default')
+        Diet = request.POST.get('Diet', 'default')
+        Price = request.POST.get('Price', 'default')
+
+
+        
+        if len(Name)<3 or Name.isnumeric():
+            messages.error(request,"Name should be string with more than 2 character")
+        else:
+            meal=Meal(Meal_Id=Meal_Id,Name=Name,Catagory=Catagory,description=description,Veg_Non=Veg_Non,Nutrient=Nutrient,Disease=Disease,Diet=Diet,Price=Price)
+            meal.save()
+            messages.success(request,"your meal has been added successfuly")
+            
+    if request.user.is_authenticated:
+        try:
+            img= Profile.objects.get(number=request.user.username).image.url
+        except:
+            img=""
         return render(request,'website/mealaffich.html', context)
+    else:
+        return render(request,'website/mealaffich.html', context)
+
+def nutrient(request):
+        return render(request,'website/nutrient.html')
+
+def meall(request):
+    meall = Meall.objects.all()
+    context ={
+       'meall': meall
+       
+    }
+    
+
+    if request.method=='POST':
+        Meal_Id = request.POST.get('Meal_Id', 'default')
+        Name = request.POST.get('Name', 'default')
+        Catagory = request.POST.get('Catagory', 'default')  
+        description = request.POST.get('description', 'default')
+        Veg_Non = request.POST.get('Veg_Non', 'default')
+        Nutrient = request.POST.get('Nutrient', 'default')
+        Disease = request.POST.get('Disease', 'default')
+        Diet = request.POST.get('Diet', 'default')
+        Price = request.POST.get('Price', 'default')
+
+
+        
+        if len(Name)<3 or Name.isnumeric():
+            messages.error(request,"Name should be string with more than 2 character")
+        else:
+            meall=Meall(Meal_Id=Meal_Id,Name=Name,Catagory=Catagory,description=description,Veg_Non=Veg_Non,Nutrient=Nutrient,Disease=Disease,Diet=Diet,Price=Price)
+            meall.save()
+            messages.success(request,"your meal has been added successfuly")
+            
+    if request.user.is_authenticated:
+        try:
+            img= Profile.objects.get(number=request.user.username).image.url
+        except:
+            img=""
+        return render(request,'website/about.html', context)
+    else:
+        return render(request,'website/about.html', context)
  
 
 def buy(request):

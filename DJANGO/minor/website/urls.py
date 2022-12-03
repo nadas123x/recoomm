@@ -10,7 +10,17 @@ urlpatterns = [
     path('about/',views.about,name="about"),
     path('contact/',views.contact,name="contact"),
     path('meal/',views.meal,name="meal"),
-    path('mealaffich/',views.meal,name="mealaffich"),
+    path('mealaffich/',views.mealaffich,name="mealaffich"),
+    path('meall/',views.meall,name="meall"),
+    path('nutrient/',views.nutrient,name="nutrient"),
+    path('emp',views.emp),
+    path('show',views.show),
+    path('guidelinesuser/',views.guidelinesuser),
+
+    path('edit/<int:id>',views.edit),
+    path('update/<int:id>',views.update),
+    path('delete/<int:id>',views.delete),
+
 
 
     path('order/',views.order,name="order"),
